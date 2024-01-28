@@ -1,6 +1,23 @@
-# React + Vite
+# Defend the city with Flexbox
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Play and learn flexbox. In this game, zombies attack your city and try to eat people. stop them!
+
+follow below commands for run peoject in your Computer:
+
+```
+cd app //change directory in app
+>>
+npm i //install Pachages
+>>
+npm run dev //run 
+```
+
+### Technologies used in this project:
+
+- React
+- JavaScript
+- Redux
+- Framer Motion
 
 Currently, two official plugins are available:
 
