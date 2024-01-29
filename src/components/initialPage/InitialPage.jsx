@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const InitialPage = () => {
   return (
     <>
@@ -17,9 +19,11 @@ const InitialPage = () => {
                 guide. are you ready ?!
               </p>
             </div>
+            <Link to='/Level1'>
             <button class="bg-violet-900 text-white w-[41.5rem] py-4 rounded-xl text-xl font-bold mt-8 outline-none">
               Let's go
             </button>
+          </Link>
           </div>
         </div>
       </div>
