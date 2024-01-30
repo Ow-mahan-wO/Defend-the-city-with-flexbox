@@ -1,17 +1,23 @@
-import { createPortal } from "react-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Open_CloseModal } from "../Levels/Level1/Leve1Slice";
 
-const Modal = ({ description, setOpenModal }) => {
+const Dialog = ({ description }) => {
+
+  const Dispatch = useDispatch();
   function SpeechDescriptionHandler(description) {
     speechSynthesis.speak(new SpeechSynthesisUtterance(description));
   }
-  return createPortal(
-    <div className="bg-red-400 flex relative rounded-t-3xl text-white w-[50%] ">
+  return (
+    <>
       <div className="w-[40%]">
-        <img className="w-[15rem] h-[15rem]" src="/character.gif" alt="" />
+              <img className="w-[15rem] h-[15rem]" src="/character.gif" draggable={false} />
         <div className="flex ">
           <button
             className="mt-5 bg-black text-white p-3 rounded-lg my-8 ml-7"
-            onClick={() => setOpenModal((Open) => !Open)}>
+            onClick={() => {
+              Dispatch(Open_CloseModal(false));
+              speechSynthesis.pause();
+            }}>
             OK I understood
           </button>
           <button
@@ -31,27 +37,11 @@ const Modal = ({ description, setOpenModal }) => {
               />
             </svg>
           </button>
-          <button className="bg-black h-[3rem] mt-5 p-3 ml-1 rounded-lg">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M14.25 9v6m-4.5 0V9M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-              />
-            </svg>
-          </button>
         </div>
       </div>
-      <div className="w-[60%] p-10">{description}</div>
-    </div>,
-    document.getElementById("portal")
+      <div className="w-[60%] py-12 px-10 text-justify">{description}</div>
+    </>
   );
 };
 
-export default Modal;
+export default Dialog;
