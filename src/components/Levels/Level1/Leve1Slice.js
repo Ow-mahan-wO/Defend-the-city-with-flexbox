@@ -4,7 +4,7 @@ const initialState = {
   time: 10,
   UserCode: null,
   isWinUser: null,
-  newStyles: "",
+  newStyles: "block",
   CodeEditorValueValidation: false,
   OpenModalCodeEditor: false,
   OpenModalDscription: true,
@@ -22,11 +22,13 @@ const Level1Reducer = createSlice({
         : (state.OpenModalCodeEditor = false);
     },
     ValidateUserCode: (state, action) => {
-      state.UserCode = action.payload.split("\n").join("");
-      state.UserCode.split(" ").join("") == ".Zombies{display:flex;}" &&
-        (state.newStyles = "flex");
-      state.UserCode.split(" ").join("") != ".Zombies{display:flex;}" &&
-        (state.newStyles = "block");
+      state.UserCode = action.payload;
+      let pattern = /display:\sflex;/g;
+      pattern.test(state.UserCode) == true
+        ? (state.newStyles = "flex")
+        : (state.newStyles = "block");
+      console.log(pattern.test(state.UserCode));
+      console.log(state.UserCode);
     },
   },
 });
