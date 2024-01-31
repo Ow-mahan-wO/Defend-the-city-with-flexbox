@@ -3,7 +3,9 @@ import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ValidateUserCode } from "../Levels/Level1/Leve1Slice";
 
-const CodeEditor = () => {
+import { motion, spring } from "framer-motion";
+
+const CodeEditor = ({ KillTime }) => {
   const EditorRef = useRef();
   const Dispatch = useDispatch();
   function HandleEditorDidMount(editor, monaco) {
@@ -12,19 +14,26 @@ const CodeEditor = () => {
 
   return (
     <div className="p-6 w-[100%]">
-      <div className="flex p-2 text-lg flex-col border-[10px] rounded-lg border-blue-400 w-[100%] h-[100%] bg-black">
+      <motion.div
+        className="flex p-2 ml-[20%] text-lg flex-col border-[10px] rounded-lg border-blue-400 w-[80%] h-[100%] bg-black"
+        initial={{ y: 0, opacity: 1 }}
+        animate={KillTime && { y: 312, opacity: 0}}
+        transition={{ duration:3, type: "spring" }}>
         <Editor
           height="100%"
           width="100%"
+          options={{
+            readOnly:KillTime
+          }}
           onChange={(value) =>
-           value=Dispatch(ValidateUserCode(EditorRef.current.getValue()))
+            (value = Dispatch(ValidateUserCode(EditorRef.current.getValue())))
           }
           onMount={HandleEditorDidMount}
           defaultLanguage="css"
           defaultValue=".Zombies{}"
           theme="vs-dark"
         />
-      </div>
+      </motion.div>
     </div>
   );
 };

@@ -3,7 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   time: 10,
   UserCode: null,
-  isWinUser: null,
+  isWinUser: false,
+  KillTime: false,
+  FinalShot: false,
   newStyles: "block",
   CodeEditorValueValidation: false,
   OpenModalCodeEditor: false,
@@ -23,14 +25,24 @@ const Level1Reducer = createSlice({
     },
     ValidateUserCode: (state, action) => {
       state.UserCode = action.payload;
-      let pattern = /display:\sflex;/g;
-      pattern.test(state.UserCode) == true
-        ? (state.newStyles = "flex")
-        : (state.newStyles = "block");
-      console.log(pattern.test(state.UserCode));
-      console.log(state.UserCode);
+      let Propertypattern = /display:/g;
+      let ValuePattern = /flex;/g;
+      if (
+        Propertypattern.test(state.UserCode) &&
+        ValuePattern.test(state.UserCode) == true
+      ) {
+        state.newStyles = "flex";
+        state.KillTime = true;
+      } else {
+        state.newStyles = "block";
+        state.KillTime = false;
+      }
     },
+    KillZombiesShot: (state,action) => { 
+      state.FinalShot = action.payload,
+      state.isWinUser = action.payload
+    }
   },
 });
-export const { Open_CloseModal, ValidateUserCode } = Level1Reducer.actions;
+export const { Open_CloseModal, ValidateUserCode ,KillZombiesShot,isWinUser } = Level1Reducer.actions;
 export default Level1Reducer.reducer;
