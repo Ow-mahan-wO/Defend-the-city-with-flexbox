@@ -1,10 +1,18 @@
+import "./style.css";
+
 import { Link } from "react-router-dom";
 
 const InitialPage = () => {
+  document.addEventListener("mousemove", (e) => {
+    document.getElementById("cursor").style.top = e.pageY + "px";
+    document.getElementById("cursor").style.left = e.pageX + "px";
+  });
+
   return (
     <>
-      <div class="bg-black flex flex-col items-center justify-center h-[100vh] w-[100%]">
-        <div class="z-40">
+      <div className="bg-gray-900 flex flex-col items-center justify-center h-[100vh] w-[100%]">
+        <div id="cursor"></div>
+        <div className="text-con">
           <p class="font-bold text-nowrap text-[3rem] text-violet-900 mb-7">
             Defend The City with FlexBox
           </p>
@@ -19,11 +27,11 @@ const InitialPage = () => {
                 guide. are you ready ?!
               </p>
             </div>
-            <Link to='/Level1'>
-            <button class="bg-violet-900 text-white w-[41.5rem] py-4 rounded-xl text-xl font-bold mt-8 outline-none">
-              Let's go
-            </button>
-          </Link>
+            <Link to="/Level1">
+              <button class="bg-violet-900 text-white w-[41.5rem] py-4 rounded-xl text-xl font-bold mt-8 outline-none">
+                Let's go
+              </button>
+            </Link>
           </div>
         </div>
       </div>
