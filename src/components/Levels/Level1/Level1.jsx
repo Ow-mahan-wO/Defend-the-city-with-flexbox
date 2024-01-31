@@ -5,7 +5,8 @@ import Dialog from "../../Modal&Contents/Dialog";
 
 import CodeEditor from "../../Modal&Contents/CodeEditor";
 import ZombiesTarget from "../../ZombiesTarget/ZombiesTarget";
-import { KillZombiesShot } from "./Leve1Slice";
+import { KillZombiesShot, isWinUser } from "./Leve1Slice";
+import WinModal from "../../WinModal/WinModal";
 
 const Level1 = () => {
   const {
@@ -14,7 +15,7 @@ const Level1 = () => {
     newStyles,
     KillTime,
     FinalShot,
-    isUserWin,
+    isWinUser,
   } = useSelector((state) => state.Level_1Slice);
 
   const Dispatch = useDispatch();
@@ -71,7 +72,12 @@ const Level1 = () => {
           </div>
         </div>
       </div>
-      {OpenModalDscription ? (
+
+      {isWinUser ? (
+        <Modal>
+          <WinModal LevelLable="Level1" />
+        </Modal>
+      ) : OpenModalDscription ? (
         <Modal>
           <Dialog description={Description} />
         </Modal>
@@ -80,7 +86,6 @@ const Level1 = () => {
           <CodeEditor KillTime={KillTime} />
         </Modal>
       )}
-      {isUserWin ? <Modal></Modal> : null}
     </div>
   );
 };
