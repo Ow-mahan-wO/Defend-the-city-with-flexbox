@@ -1,6 +1,6 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import InitialPage from './components/initialPage/InitialPage'
-import Level1 from './components/Levels/Level1/Level1';
+import InitialPage from './pages/InitialPage'
+import Level1 from './pages/Level1';
 
 function App() {
   return <>

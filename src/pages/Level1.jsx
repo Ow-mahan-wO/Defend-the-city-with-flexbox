@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import Modal from "../../Modal&Contents/Modal";
-import Dialog from "../../Modal&Contents/Dialog";
+import Modal from "../ui/Modal";
+import Dialog from "../ui/Dialog";
 
-import CodeEditor from "../../Modal&Contents/CodeEditor";
-import ZombiesTarget from "../../ZombiesTarget/ZombiesTarget";
-import { KillZombiesShot, isWinUser } from "./Leve1Slice";
-import WinModal from "../../WinModal/WinModal";
+import CodeEditor from "../ui/CodeEditor";
+import ZombiesTarget from "../ui/ZombiesTarget";
+import { KillZombiesShot, isWinUser } from "../features/Level1/Leve1Slice";
+import WinModal from "../components/WinModal/WinModal";
 
 const Level1 = () => {
   const {

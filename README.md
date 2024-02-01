@@ -4,6 +4,8 @@ Play and learn flexbox. In this game, zombies attack your city and try to eat pe
 
 follow below commands for run peoject in your Computer:
 
+### status :Developing...
+
 ```
 cd app //change directory in app
 >>

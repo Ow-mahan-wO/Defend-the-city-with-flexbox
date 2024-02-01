@@ -8,3 +8,19 @@
     display: flex;
     flex-direction: column-reverse;
 }
+#cursor {
+    background-color:rgba(255, 255, 255, 0.382);
+    height:10rem;
+    width:10rem;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    transform: translate(-100px,-100px);
+    filter:blur(25px)
+   
+  }
+  
+
+  .text-con {
+     mix-blend-mode: overlay
+  }

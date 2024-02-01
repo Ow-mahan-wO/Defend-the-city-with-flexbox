@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Open_CloseModal } from "../Levels/Level1/Leve1Slice";
+import { Open_CloseModal } from "../features/Level1/Leve1Slice";
 
 const Dialog = ({ description }) => {
   const Dispatch = useDispatch();
