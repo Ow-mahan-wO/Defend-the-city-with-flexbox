@@ -1,11 +1,10 @@
 import Editor from "@monaco-editor/react";
 import { useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { ValidateUserCode } from "../features/Level1/Leve1Slice";
+import { useDispatch } from "react-redux";
 
 import { motion, spring } from "framer-motion";
 
-const CodeEditor = ({ KillTime }) => {
+const CodeEditor = ({ KillTime , ValidateUserCode }) => {
   const EditorRef = useRef();
   const Dispatch = useDispatch();
   function HandleEditorDidMount(editor, monaco) {

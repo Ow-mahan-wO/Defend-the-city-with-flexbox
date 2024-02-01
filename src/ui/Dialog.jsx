@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Open_CloseModal } from "../features/Level1/Leve1Slice";
 
-const Dialog = ({ description }) => {
+
+const Dialog = ({ description, Open_CloseModal }) => {
   const Dispatch = useDispatch();
   function SpeechDescriptionHandler(description) {
     speechSynthesis.speak(new SpeechSynthesisUtterance(description));

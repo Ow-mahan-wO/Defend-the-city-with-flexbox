@@ -7,6 +7,8 @@ import CodeEditor from "../ui/CodeEditor";
 import ZombiesTarget from "../ui/ZombiesTarget";
 import { KillZombiesShot, isWinUser } from "../features/Level1/Leve1Slice";
 import WinModal from "../components/WinModal/WinModal";
+import { Open_CloseModal } from "../features/Level1/Leve1Slice";
+import { ValidateUserCode } from "../features/Level1/Leve1Slice";
 
 const Level1 = () => {
   const {
@@ -75,15 +77,15 @@ const Level1 = () => {
 
       {isWinUser ? (
         <Modal>
-          <WinModal LevelLable="Level1" />
+          <WinModal LevelLable="Level1" NextLevel={2} />
         </Modal>
       ) : OpenModalDscription ? (
         <Modal>
-          <Dialog description={Description} />
+          <Dialog description={Description} Open_CloseModal={Open_CloseModal} />
         </Modal>
       ) : (
         <Modal>
-          <CodeEditor KillTime={KillTime} />
+          <CodeEditor KillTime={KillTime} ValidateUserCode={ValidateUserCode} />
         </Modal>
       )}
     </div>

@@ -10,7 +10,7 @@ const InitialPage = () => {
 
   return (
     <>
-      <div className="bg-gray-900 flex flex-col items-center justify-center h-[100vh] w-[100%]">
+      <div className="bg-gray-950 flex flex-col items-center justify-center h-[100vh] w-[100%]">
         <div id="cursor"></div>
         <div className="text-con">
           <p class="font-bold text-nowrap text-[3rem] text-violet-900 mb-7">

@@ -9,7 +9,7 @@
     flex-direction: column-reverse;
 }
 #cursor {
-    background-color:rgba(255, 255, 255, 0.382);
+    background-color:rgba(255, 255, 255, 0.175);
     height:10rem;
     width:10rem;
     border-radius: 50%;

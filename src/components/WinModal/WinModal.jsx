@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import Star from "./Star";
 
 import { motion } from "framer-motion";
 
-const WinModal = ({ LevelLable }) => {
+const WinModal = ({ LevelLable,NextLevel }) => {
   const WINMODAL_VARIANT = {
     before: {
       y: 400,
@@ -33,7 +34,9 @@ const WinModal = ({ LevelLable }) => {
         <Star />
       </div>
           <div>
-              <button className="bg-black text-white p-3 w-[13rem] rounded-xl mt-8 font-bold">Next Level</button>
+        <Link to={`/Level${NextLevel}`}>
+        <button className="bg-black text-white p-3 w-[13rem] rounded-xl mt-8 font-bold">Next Level</button>
+             </Link>
       </div>
     </motion.div>
   );
