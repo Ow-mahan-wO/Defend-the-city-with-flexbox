@@ -63,11 +63,16 @@ const Level1 = () => {
                     draggable={false}
                   />
                 ) : (
-                  <img
-                    className="w-[15rem] h-[15rem]"
-                    src="/deadZombie.gif"
-                    alt="deadZombie"
-                  />
+                  <>
+                    <audio autoPlay>
+                      <source src="/gunShotSound.mp3" />
+                    </audio>
+                    <img
+                      className="w-[15rem] h-[15rem]"
+                      src="/deadZombie.gif"
+                      alt="deadZombie"
+                    />
+                  </>
                 )}
               </ZombiesTarget>
             </div>

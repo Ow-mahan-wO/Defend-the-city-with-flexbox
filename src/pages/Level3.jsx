@@ -1,27 +1,26 @@
 import { useDispatch, useSelector } from "react-redux";
-import ZombiesTarget from "../ui/ZombiesTarget";
-import Modal from "../ui/Modal";
+
 import WinModal from "../components/WinModal/WinModal";
-import Dialog from "../ui/Dialog";
 import CodeEditor from "../ui/CodeEditor";
+import Dialog from "../ui/Dialog";
+import Modal from "../ui/Modal";
+import ZombiesTarget from "../ui/ZombiesTarget";
+
 import {
   KillZombiesShot,
   Open_CloseModal,
-} from "../features/Level2/Leve2Slice";
-import { ValidateUserCode } from "../features/Level2/Leve2Slice";
+} from "../features/Level3/Level3Sliece";
 
-const Level2 = () => {
+const Level3 = () => {
   const {
-    OpenModalDscription,
     Description,
+    OpenModalDscription,
     isTrueUserCode,
     KillTime,
     FinalShot,
     isWinUser,
-  } = useSelector((state) => state.Level_2Slice);
-
+  } = useSelector((state) => state.Level_3Slice);
   const Dispatch = useDispatch();
-
   if (KillTime) {
     setTimeout(() => {
       Dispatch(KillZombiesShot(true));
@@ -31,16 +30,14 @@ const Level2 = () => {
   return (
     <>
       <div className="w-[100%] h-[100vh] absolute ">
-        <div className="w-[100%] h-[100vh] bg-black flex bg-no-repeat">
-          <div className="flex items-center justify-center w-[20%] h-[100%]">
-            <img src="/character.gif" draggable={false} />
+        <div className="w-[100%] h-[100vh] bg-black flex flex-col justify-end bg-no-repeat">
+          <div className="px-24">
+            <div className="w-[10rem] h-[10rem]">
+              <img className="w-[100%] h-[100%]" src="/machineGun.png" alt="" />
+            </div>
           </div>
-          <div className="w-[80%] h-[100%] px-24 py-20">
-            <div
-              style={
-                isTrueUserCode ? { display: "flex", alignItems: "center" } : {}
-              }
-              className="border-2 border-dashed border-white w-[100%] h-[100%]">
+          <div className="w-[100%] h-[75%] px-24 pt-10 pb-20">
+            <div className="flex border-2 border-dashed border-white w-[100%] h-[100%]">
               <div>
                 <ZombiesTarget KillTime={KillTime} Shot={FinalShot}>
                   {!FinalShot ? (
@@ -108,4 +105,4 @@ const Level2 = () => {
   );
 };
 
-export default Level2;
+export default Level3;
