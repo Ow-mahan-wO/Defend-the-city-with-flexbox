@@ -9,13 +9,14 @@ import ZombiesTarget from "../ui/ZombiesTarget";
 import {
   KillZombiesShot,
   Open_CloseModal,
+  ValidateUserCode,
 } from "../features/Level3/Level3Sliece";
 
 const Level3 = () => {
   const {
     Description,
-    OpenModalDscription,
     isTrueUserCode,
+    OpenModalDscription,
     KillTime,
     FinalShot,
     isWinUser,
@@ -37,7 +38,9 @@ const Level3 = () => {
             </div>
           </div>
           <div className="w-[100%] h-[75%] px-24 pt-10 pb-20">
-            <div className="flex border-2 border-dashed border-white w-[100%] h-[100%]">
+            <div
+              style={isTrueUserCode ? { flexDirection: "column" } : {}}
+              className="flex border-2 border-dashed border-white w-[100%] h-[100%]">
               <div>
                 <ZombiesTarget KillTime={KillTime} Shot={FinalShot}>
                   {!FinalShot ? (
@@ -83,7 +86,7 @@ const Level3 = () => {
 
         {isWinUser ? (
           <Modal>
-            <WinModal LevelLable="Level2" NextLevel={3} />
+            <WinModal LevelLable="Level3" NextLevel={4} />
           </Modal>
         ) : OpenModalDscription ? (
           <Modal>
